@@ -2,6 +2,7 @@
 npm install -g @vue/cli @vue/cli-service-global
 vue ui / vue create app-name
 
+--BASICS--
 2.data()
 3.Display data with {{ }}
 4.Events with options
@@ -9,19 +10,23 @@ vue ui / vue create app-name
 6.Computed properties
 7.Watchers
 8.Lifecycle hooks
+--DIRECTIVES--
 9.v-if, v-show
 10.v-for, key binding and how to get index
 11.v-model - lazy loading
 12.:class="", :class="{'--extend': characters > 100}"
+--COMPONENTS--
 13.scoped style, sass (node-sass, sass-loader)
 14.Components (local/globaly registered) 
 15.Props, event $emit with param
 16.Slots
 17.How to change props
+--OTHERS--
 18.Custom directives
 19.Teleport
 20.Mixins
 
+--COMPOSITION API AND FEATURES--
 21.Composition API
 22.Ref, reactive, toRefs
 23.Async components
@@ -33,15 +38,14 @@ vue ui / vue create app-name
 -routing lazy-loading
 -async components
 
-
+--TOOLS--
 Routing - default component vs lazy-loaded chunk
-Vue Resources - requesty
-VeeValidate - walidacja formularzy
 Vuex - state management
+VeeValidate - form validation
 PWA
 Vue DevTools
 
-
+--SETTINGS--
 eslint essentials -> "plugin:vue/vue3-strongly-recommended"
 vetur template interpolation:on
 
