@@ -46,7 +46,7 @@ PWA
 Vue DevTools
 
 --SETTINGS--
-eslint essentials -> "plugin:vue/vue3-strongly-recommended"
+eslint essential -> "plugin:vue/vue3-strongly-recommended"
 vetur template interpolation:on
 
 .prettierrc settings

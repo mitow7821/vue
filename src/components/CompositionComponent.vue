@@ -10,19 +10,19 @@
 </template>
 
 <script>
-import { computed, inject } from "vue";
+import { computed, inject } from 'vue';
 export default {
-  name: "CompositionComponent",
+  name: 'CompositionComponent',
   props: {
     msg: {
       type: String,
-      default: "Default message"
+      default: 'Default message'
     }
   },
-  emits: ["change-title"],
+  emits: ['change-title'],
   setup(props) {
-    const parentData = inject("data");
-    const newMsg = computed(() => "Prop value " + props.msg);
+    const parentData = inject('data');
+    const newMsg = computed(() => 'Prop value ' + props.msg);
     return {
       newMsg,
       parentData

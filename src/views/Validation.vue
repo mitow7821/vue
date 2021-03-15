@@ -86,8 +86,8 @@
 </template>
 
 <script>
-import { Form, Field } from "vee-validate";
-import * as Yup from "yup";
+import { Form, Field } from 'vee-validate';
+import * as Yup from 'yup';
 
 export default {
   components: {
@@ -96,30 +96,30 @@ export default {
   },
   setup() {
     const schema = Yup.object().shape({
-      title: Yup.string().required("Title is required"),
-      firstName: Yup.string().required("First Name is required"),
-      lastName: Yup.string().required("Last name is required"),
+      title: Yup.string().required('Title is required'),
+      firstName: Yup.string().required('First Name is required'),
+      lastName: Yup.string().required('Last name is required'),
       dob: Yup.string()
-        .required("Date of Birth is required")
+        .required('Date of Birth is required')
         .matches(
           /^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/,
-          "Date of Birth must be a valid date in the format YYYY-MM-DD"
+          'Date of Birth must be a valid date in the format YYYY-MM-DD'
         ),
       email: Yup.string()
-        .required("Email is required")
-        .email("Email is invalid"),
+        .required('Email is required')
+        .email('Email is invalid'),
       password: Yup.string()
-        .min(6, "Password must be at least 6 characters")
-        .required("Password is required"),
+        .min(6, 'Password must be at least 6 characters')
+        .required('Password is required'),
       confirmPassword: Yup.string()
-        .oneOf([Yup.ref("password"), null], "Passwords must match")
-        .required("Confirm Password is required"),
-      acceptTerms: Yup.string().required("Accept Ts & Cs is required")
+        .oneOf([Yup.ref('password'), null], 'Passwords must match')
+        .required('Confirm Password is required'),
+      acceptTerms: Yup.string().required('Accept Ts & Cs is required')
     });
 
     const onSubmit = values => {
       // display form values on success
-      alert("SUCCESS\n\n" + JSON.stringify(values, null, 4));
+      alert('SUCCESS\n\n' + JSON.stringify(values, null, 4));
     };
 
     return {

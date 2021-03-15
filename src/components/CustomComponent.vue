@@ -10,18 +10,18 @@
 
 <script>
 export default {
-  name: "CustomComponent",
+  name: 'CustomComponent',
   props: {
     msg: {
       type: String,
-      default: "Default message"
+      default: 'Default message'
     }
   },
   computed: {
     newMsg() {
-      return "Prop value " + this.msg;
+      return 'Prop value ' + this.msg;
     }
   },
-  emits: ["change-title"]
+  emits: ['change-title']
 };
 </script>

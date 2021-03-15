@@ -3,6 +3,7 @@
     <router-link to="/">Options API</router-link> |
     <router-link to="/composition">Composition API</router-link> |
     <router-link to="/vuex">Vuex</router-link> |
+    <router-link to="/vuex-composition">Vuex Composition</router-link> |
     <router-link to="/validation">Validation</router-link> |
     <router-link to="/request">Vue Resource</router-link>
   </div>
