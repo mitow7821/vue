@@ -1,10 +1,9 @@
 <template>
-   <button @:click="deletee">Remove</button>
    <pre style="textAlign:left;">{{ data }}</pre>
 </template>
 
 <script>
-// const axios = require("axios");
+const axios = require('axios');
 export default {
    data() {
       return {
@@ -14,17 +13,16 @@ export default {
    },
 
    mounted() {
-      // axios
-      //   .get("https://api.coindesk.com/v1/bpi/currentprice.json")
-      //   .then(response => (this.info = response));
+      axios
+         .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+         .then(response => (this.info = response));
 
-      fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
-         .then(response => response.json())
-         .then(data => {
-            this.data = data;
-            // this.id = data.customers[0].id;
-         })
-         .catch(err => (this.data = err));
+      // fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
+      //    .then(response => response.json())
+      //    .then(data => {
+      //       this.data = data;
+      //    })
+      //    .catch(err => (this.data = err));
    },
 };
 </script>

@@ -1,5 +1,4 @@
 import { createStore } from 'vuex';
-
 const store = createStore({
    //State is just a data
    state: {

@@ -26,10 +26,14 @@ export default {
       const mutateDataAction = () => store.dispatch('mutateDataAction');
 
       return {
-         actions,
-         getters,
-         mutations,
+         // ...toRefs to destructure
          state,
+         getters,
+         // only ... to dedestructure
+         mutations,
+         actions,
+
+         //vuex
          vuexData,
          changedData,
          mutateData,

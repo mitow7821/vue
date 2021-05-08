@@ -5,7 +5,9 @@
    <h1 :class="{ '--extend': count == 1 }">Counter: {{ count }}</h1>
    <button @click.once="add()">+1</button>
 
-   <h4 v-if="count">Conditional rendering using v-if</h4>
+   <transition name="fade">
+      <h4 v-if="count">Conditional rendering using v-if</h4>
+   </transition>
    <h4 v-show="count">Conditional rendering using v-show</h4>
 
    <p :class="someText">{{ someText }}</p>
@@ -15,15 +17,19 @@
 
    <Suspense v-if="count">
       <template #default>
-         <CompositionComponent :msg="message" @change-title="message = $event">
+         <component
+            :is="'CompositionComponent'"
+            :msg="message"
+            @change-title="message = $event"
+         >
             <template #text>
                <h4>default value shows when there is no template</h4>
             </template>
             <template #slot>second named slot</template>
-         </CompositionComponent>
+         </component>
       </template>
       <template #fallback>
-         <div class="loader">Loading...</div>   
+         <div class="loader">Loading...</div>
       </template>
    </Suspense>
 
@@ -44,7 +50,8 @@ import {
    watch,
    onUpdated,
    defineAsyncComponent,
-   provide
+   provide,
+   watchEffect,
 } from 'vue';
 
 const CompositionComponent = defineAsyncComponent(async () => {
@@ -62,15 +69,15 @@ export default {
    setup() {
       const count = ref(0);
       count.value++;
-      console.log(count.value);
 
       const data = reactive({
+         show: 'false',
          title: 'Vue 3 Trash Course',
          count: 0,
          someText: '',
          array: ['Fist item', 'Second item', 'Last items'],
          message: 'Hello from parent component',
-         uppercaseTitle: computed(() => data.title.toUpperCase())
+         uppercaseTitle: computed(() => data.title.toUpperCase()),
       });
 
       provide('data', data);
@@ -85,19 +92,32 @@ export default {
          }
       );
 
+      watchEffect(() => {
+         console.log(data.count);
+      });
+
       onUpdated(() => {
          console.log('Data updated!');
       });
 
       return {
          ...toRefs(data),
-         add
+         add,
       };
-   }
+   },
 };
 </script>
 
 <style scoped lang="scss">
+.fade-enter-active,
+.fade-leave-active {
+   transition: opacity 1s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+   opacity: 0;
+}
 h2 {
    color: #222;
    &:hover {

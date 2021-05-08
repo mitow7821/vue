@@ -8,7 +8,7 @@
    <h4 v-if="count">Conditional rendering using v-if</h4>
    <h4 v-show="count">Conditional rendering using v-show</h4>
 
-   <p :class="someText">{{ someText }}</p>
+   <p :class="someText" ref="someText">{{ someText }}</p>
    <input type="text" v-model="someText" />
 
    <li v-for="(item, index) in array" :key="index">{{ item }}</li>
@@ -17,14 +17,10 @@
       <template #text>
          <h4>default value shows when there is no template</h4>
       </template>
-      <template #slot>second named slot</template>
+      <template #slot="{msg:prop}">Scoped slot data: {{ prop }}</template>
    </CustomComponent>
 
    <p v-colorful>Custom directives local/global</p>
-
-   <teleport to="body">
-      <p>I was teleported to body</p>
-   </teleport>
 </template>
 
 <script>
@@ -62,6 +58,9 @@ export default {
    },
 
    updated() {
+      this.$nextTick(() => {
+         console.log(this.$refs.someText);
+      });
       console.log('Data updated!');
    },
 

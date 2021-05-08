@@ -7,7 +7,11 @@
       <router-link to="/validation">Validation</router-link> |
       <router-link to="/request">Vue Resource</router-link>
    </div>
-   <router-view />
+   <router-view v-slot="{ Component }">
+      <keep-alive include="OptionsAPI" exclude="CompositionAPI">
+         <component :is="Component" />
+      </keep-alive>
+   </router-view>
 </template>
 
 <style lang="scss">
