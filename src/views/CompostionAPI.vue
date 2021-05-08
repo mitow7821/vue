@@ -23,7 +23,7 @@
          </CompositionComponent>
       </template>
       <template #fallback>
-         <div class="loader">Loading...</div>
+         <div class="loader">Loading...</div>   
       </template>
    </Suspense>
 

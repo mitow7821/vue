@@ -1,5 +1,4 @@
 import { createStore } from 'vuex';
-import moduleA from './modules/myModule';
 
 const store = createStore({
    //State is just a data
@@ -28,9 +27,6 @@ const store = createStore({
             context.commit('mutateDataAction');
          }, 2000);
       },
-   },
-   modules: {
-      module: moduleA,
    },
 });
 
