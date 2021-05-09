@@ -20,7 +20,7 @@
          <component
             :is="'CompositionComponent'"
             :msg="message"
-            @change-title="message = $event"
+            @changeTitle="message = $event"
          >
             <template #text>
                <h4>default value shows when there is no template</h4>
@@ -32,8 +32,6 @@
          <div class="loader">Loading...</div>
       </template>
    </Suspense>
-
-   <p v-colorful>Custom directives local/global</p>
 
    <teleport to="body">
       <p>I was teleported to body</p>

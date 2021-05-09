@@ -41,6 +41,12 @@ const routes = [
       component: () =>
          import(/* webpackChunkName: "request" */ '../views/Request.vue'),
    },
+   {
+      path: '/render',
+      name: 'Render',
+      component: () =>
+         import(/* webpackChunkName: "render" */ '../views/Render.vue'),
+   },
 ];
 
 const router = createRouter({

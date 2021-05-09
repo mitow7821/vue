@@ -5,7 +5,8 @@
       <router-link to="/vuex">Vuex</router-link> |
       <router-link to="/vuex-composition">Vuex Composition</router-link> |
       <router-link to="/validation">Validation</router-link> |
-      <router-link to="/request">Vue Resource</router-link>
+      <router-link to="/request">Vue Resource</router-link> |
+      <router-link to="/render">Render</router-link>
    </div>
    <router-view v-slot="{ Component }">
       <keep-alive include="OptionsAPI" exclude="CompositionAPI">

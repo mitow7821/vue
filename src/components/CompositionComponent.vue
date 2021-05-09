@@ -19,7 +19,8 @@ export default {
          default: 'Default message',
       },
    },
-   emits: ['change-title'],
+   // While using kebab-case emit name, declare it below in both camel and kebab case to remove all warnings
+   emits: ['change-title', 'changeTitle'],
    setup(props) {
       const parentData = inject('data');
       const newMsg = computed(() => 'Prop value ' + props.msg);

@@ -1,10 +1,10 @@
 <template>
    <h2>{{ title }}</h2>
-   <h3>{{ uppercaseTitle }}</h3>
+   <h3 v-html="uppercaseTitle"></h3>
 
    <h1 :class="{ '--extend': count == 1 }">Counter: {{ count }}</h1>
    <button @click.once="add()">+1</button>
-
+   <h5>{{ count ? 'hasCount' : 'noCount' }}</h5>
    <h4 v-if="count">Conditional rendering using v-if</h4>
    <h4 v-show="count">Conditional rendering using v-show</h4>
 
@@ -13,7 +13,7 @@
 
    <li v-for="(item, index) in array" :key="index">{{ item }}</li>
 
-   <CustomComponent :msg="message" @change-title="message = $event">
+   <CustomComponent :msg="message" @changeTitle="message = $event">
       <template #text>
          <h4>default value shows when there is no template</h4>
       </template>
@@ -41,7 +41,7 @@ export default {
 
    computed: {
       uppercaseTitle() {
-         return this.title.toUpperCase();
+         return `<i>${this.title.toUpperCase()}</i>`;
       },
    },
 
