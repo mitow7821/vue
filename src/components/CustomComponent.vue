@@ -22,7 +22,6 @@ export default {
          return 'Prop value ' + this.msg;
       },
    },
-   // While using kebab-case emit name, declare it below in both camel and kebab case to remove all warnings
-   emits: ['changeTitle', 'change-title'],
+   emits: ['change-title'],
 };
 </script>
